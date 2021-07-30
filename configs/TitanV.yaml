@@ -1,0 +1,4 @@
+overwrite_config: RTX3070.yaml
+
+batch_size: 72
+learning_rate: 1.e-3

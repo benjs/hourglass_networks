@@ -1,0 +1,9 @@
+tensorflow>=2.5.0
+tensorflow-addons
+numpy<=1.19.5
+opencv-python-headless
+packaging
+pillow
+pytest
+pyyaml
+wandb

@@ -1,0 +1,12 @@
+__pycache__
+.eggs
+.ipynb_checkpoints
+.vscode
+*.egg-info
+build
+dist
+runs
+test.ipynb
+venv
+visualization
+wandb

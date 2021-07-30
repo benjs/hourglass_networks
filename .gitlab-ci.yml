@@ -1,0 +1,32 @@
+image: python:3.9
+
+stages:
+    - Static analysis
+    - Test
+    - Packaging
+
+flake8:
+    stage: Static analysis
+    before_script:
+        - pip3 install flake8
+    script:
+        - python3 -m flake8 --max-line-length 100 --ignore=E226,F401,E241
+
+pytest:
+    stage: Test
+    before_script:
+        - pip3 install -r requirements.txt
+    script:
+        - python3 -m pytest --junitxml=report.xml
+    artifacts:
+        when: always
+        reports:
+            junit: report.xml
+
+build and upload:
+    stage: Packaging
+    before_script:
+        - pip install twine
+    script:
+        - python3 setup.py sdist bdist_wheel
+        - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*

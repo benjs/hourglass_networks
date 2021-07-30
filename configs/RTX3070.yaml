@@ -1,0 +1,24 @@
+epochs: 300
+batch_size: 32
+learning_rate: 1.0e-3
+seed: 42  # seed for most random processes
+
+heatmap_sigma: 2
+rotate: [-30, 30]  # degrees
+scale: [0.75, 1.25]
+
+# Color jittering, like torchvision.ColorJitter
+contrast: 0.5
+brightness: 0.2
+saturation: 0.5
+hue: 0.5
+
+# Paths are relative to home
+mpii_annot_dir: 'mpii_annot'
+mpii_image_dir: 'mpii_images'
+cache_dataset: False
+
+# Logging
+logger: 'wandb'  # or 'tensorboard'
+log_dir: 'runs'  # relative to project dir
+wandb_project_name: 'projektpraktikum'
