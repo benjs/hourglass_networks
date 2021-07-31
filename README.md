@@ -14,7 +14,7 @@ Initial requirements:
 
 ### Through pip
 ```bash
-pip install git+https://github.com/benjs/hourglass_networks.git
+pip install tf-hourglass-networks
 ```
 
 ### From source
