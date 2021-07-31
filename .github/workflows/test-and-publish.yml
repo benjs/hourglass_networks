@@ -1,0 +1,47 @@
+name: Publish Python 🐍 distributions 📦 to PyPI and TestPyPI
+on: [push]
+
+jobs:
+  lint:
+    name: Flake8 linting
+    runs-on: ubuntu-latest
+    container: python:3.9
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install deps
+      run: pip install flake8
+    - name: Lint
+      run: python3 -m flake8 --max-line-length 100 --ignore=E226,F401,E241
+
+  test:
+    name: Pytest
+    runs-on: ubuntu-latest
+    container: python:3.9
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install deps
+      run: pip install -r requirements.txt
+    - name: Test
+      run: python -m pytest
+
+  build-n-publish:
+    name: Test, Build and Publish
+    runs-on: ubuntu-latest
+    container: python:3.9
+    environment: publish
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install deps
+      run: |
+        pip install twine
+        pip install -r requirements.txt
+    - name: Build
+      run: python3 setup.py sdist bdist_wheel
+    - name: Publish
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
