@@ -1,6 +1,7 @@
-name: Lint, Test, Build and Publish
+name: Build and Publish
 on: [push]
 
+jobs:
   build-n-publish:
     name: Build and Publish
     runs-on: ubuntu-latest
