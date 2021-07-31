@@ -1,3 +1,6 @@
+![Tests](https://github.com/benjs/hourglass_networks/actions/workflows/test/badge.svg)
+![PyPI package](https://github.com/benjs/hourglass_networks/actions/workflows/pypi/badge.svg)
+
 # tf.keras Implementation of Hourglass Models for Human Pose Estimation
 
 Implementation of the paper [Toward fast and accurate human pose estimation via soft-gated skip connections](https://arxiv.org/abs/2002.11098) by Bulat et al. and [Stacked Hourglass Networks for Human Pose Estimation](https://arxiv.org/abs/1603.06937) by Newell et al. using tensorflow keras.

@@ -1,0 +1,22 @@
+name: Lint, Test, Build and Publish
+on: [push]
+
+  build-n-publish:
+    name: Build and Publish
+    runs-on: ubuntu-latest
+    container: python:3.9
+    environment: publish
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install deps
+      run: |
+        pip install twine
+        pip install -r requirements.txt
+    - name: Build
+      run: python3 setup.py sdist bdist_wheel
+    - name: Publish
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
