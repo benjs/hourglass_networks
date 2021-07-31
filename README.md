@@ -1,5 +1,5 @@
-![Tests](https://github.com/benjs/hourglass_networks/actions/workflows/test/badge.svg)
-![PyPI package](https://github.com/benjs/hourglass_networks/actions/workflows/pypi/badge.svg)
+![Tests](https://github.com/benjs/hourglass_networks/actions/workflows/test.yml/badge.svg)
+![PyPI package](https://github.com/benjs/hourglass_networks/actions/workflows/pypi.yml/badge.svg)
 
 # tf.keras Implementation of Hourglass Models for Human Pose Estimation
 
